@@ -201,7 +201,7 @@ main{
     width: 100%;
     background-color: var(--color-gray);
     margin-top: 30px;
-    border-radius: 20px;
+    border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -211,6 +211,15 @@ main{
 .output{
     display: flex;
     flex-wrap: wrap;
+}
+.output-one, .output-two, .output-three{
+    border-bottom: 2px solid var(--color-grayish);
+}
+.output-four{
+    border-bottom: none;
+}
+.output-two, .output-four{
+    background-color: var(--color-grayish);
 }
 .p-one{
     flex: 1;
