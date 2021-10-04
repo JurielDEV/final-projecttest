@@ -312,6 +312,10 @@
     }
     .msg-input select{
         width: 255%;
+    }
+    .msg-submit textarea{
+        width: 200px;
+    }
     /*output container style*/
     .output-cont-child{
         width: 100%;
@@ -325,7 +329,6 @@
         margin: 7px 10px;
     }
     .output{
-        display: flex;
         flex-direction: column;
     }
 }
