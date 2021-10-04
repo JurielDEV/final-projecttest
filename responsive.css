@@ -299,10 +299,16 @@
         right: 0;
     }
     .form-container{
-        max-width: 320px;
+        max-width: 350px;
     }
     .message-header h3{
-        font-size: .70rem;
+        font-size: .80rem;
+    }
+    .msg-input{
+        flex-wrap: wrap;
+    }
+    .msg-input input, .msg-input select{
+        width: 100%;
     }
     /*output container style*/
     .output-cont-child{
