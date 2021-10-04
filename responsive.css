@@ -212,7 +212,7 @@
         margin-left: 20px;
     }
     .hamburger{
-        margin-left: 80%;
+        margin-left: 78%;
         display: flex;
         flex-direction: column;
         cursor: pointer;
@@ -222,7 +222,7 @@
         border-radius: 10px;
     }
     .hamburger-close{
-        margin-left: 75%;
+        margin-left: 80%;
         margin-top: 10px;
         display: flex;
         flex-direction: column;
