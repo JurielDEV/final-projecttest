@@ -222,8 +222,8 @@
         border-radius: 10px;
     }
     .hamburger-close{
-        margin-left: 80%;
-        margin-top: 10px;
+        margin-left: 83%;
+        margin-top: 15px;
         display: flex;
         flex-direction: column;
         cursor: pointer;
