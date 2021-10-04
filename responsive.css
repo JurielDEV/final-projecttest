@@ -63,7 +63,7 @@
         width: 93%;
     }
 }
-@media screen and (min-width: 481px) and (max-width: 640px) { 
+@media screen and (max-width: 640px) { 
     /* portrait e-readers (Nook/Kindle), smaller 
     tablets @ 600 or @ 640 wide. */
     .header{
