@@ -295,7 +295,7 @@
         width: 93%;
     }
     .form-popup {
-        bottom: 80px;
+        bottom: 0;
         right: 0;
     }
     .form-container{
@@ -308,7 +308,7 @@
         flex-wrap: wrap;
     }
     .msg-input input, .msg-input select{
-        width: 100%;
+        width: 200%;
     }
     /*output container style*/
     .output-cont-child{
