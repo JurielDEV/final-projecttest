@@ -296,7 +296,11 @@
     }
     .form-popup {
         bottom: 80px;
-        right: 30px;
+        right: 0;
+    }
+    }
+    .form-container{
+        max-width: 300px;
     }
     /*output container style*/
     .output-cont-child{
