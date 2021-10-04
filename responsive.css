@@ -298,9 +298,11 @@
         bottom: 80px;
         right: 0;
     }
-    }
     .form-container{
-        max-width: 300px;
+        max-width: 320px;
+    }
+    .message-header h3{
+        font-size: .70rem;
     }
     /*output container style*/
     .output-cont-child{
