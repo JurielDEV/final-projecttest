@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BSU Lost-Item Finder | Found Item</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="responsive.css">
+        <link rel="icon" href="./images/bsu-logo.png" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <div class="header" id="header">
+                <div class="logo-name">
+                    <img src="./images/bsu-logo.png" width="40" height="40">
+                    <h1>BSU Online Campus Lost-Item Finder System</h1>
+                    <p>(User)</p>
+                    <div class="hamburger" onclick="myNav()">
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider">
+                <p>Batangas State University</p>
+            </div>
+        </header>
+        <nav class="navigation" id="navigation">
+                <div class="hamburger-close" onclick="closeNav()">
+                    <div class="burger --one"></div>
+                    <div class="burger --two"></div>
+                    <div class="burger --three"></div>
+                </div>
+                <h3><img src="./images/menu-logo.png" height="18" width="18">Menu</h3>
+                <div class="nav-links">
+                    <a href="viewer_home.php" class="nav-link"><img src="./images/home-icon.png" width="18" height="18" style="margin-right: 3px;">Home</a>
+                    <a href="viewer-found.php" class="nav-link active"><img src="./images/found-img.png" width="18" height="18" style="margin-right: 3px;">Found Item</a>
+                    <a href="viewer-claimed.php" class="nav-link"><img src="./images/claimed-icon.png" width="18" height="18" style="margin-right: 3px;">Claimed Item</a>
+                    <a href="viewer_help.php" class="nav-link"><img src="./images/help-icon.png" width="18" height="18" style="margin-right: 3px;">Help</a>
+                    <a href="logout.php" class="nav-link"><img src="./images/logout-icon.png" width="18" height="18" style="margin-right: 3px;">Logout</a>
+                </div>
+        </nav>
+        <nav class="navigation">
+                <h3><img src="./images/menu-logo.png" height="18" width="18">Menu</h3>
+                <div class="nav-links">
+                    <a href="viewer_home.php" class="nav-link"><img src="./images/home-icon.png" width="18" height="18" style="margin-right: 3px;">Home</a>
+                    <a href="viewer-found.php" class="nav-link active"><img src="./images/found-img.png" width="18" height="18" style="margin-right: 3px;">Found Item</a>
+                    <a href="viewer-claimed.php" class="nav-link"><img src="./images/claimed-icon.png" width="18" height="18" style="margin-right: 3px;">Claimed Item</a>
+                    <a href="viewer_help.php" class="nav-link"><img src="./images/help-icon.png" width="18" height="18" style="margin-right: 3px;">Help</a>
+                    <a href="logout.php" class="nav-link"><img src="./images/logout-icon.png" width="18" height="18" style="margin-right: 3px;">Logout</a>
+                </div>
+        </nav>
+        <main>
+            <section class="form-output" id="form-output">
+                <div class="output-container">
+                <?php
+                    ini_set('display_errors',1);
+                    //error_reporting(E_ALL & ~E_NOTICE);
+                    Error_reporting(0);
+                    //Make a MySQL Connection
+                    //server
+                    mysql_connect("localhost", "root", "", "db_batstateu");
+                    //echo" Connected to localhost ";
+                    //database
+                    mysql_select_db("db_batstateu");
+                    //echo" Connected to database ";
+
+                    $result=mysql_query("SELECT * FROM tb_iteminfo Order By itemno DESC") or die("Error");
+                    while($row=mysql_fetch_assoc($result))
+                    {
+                    ?>
+                        <div class='output-cont-child'>
+                            <div class="output-one output">
+                                <p class="p-one"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Finder: </span><?php echo $row['findername']; ?></p>
+                                <p class="p-two"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Item No: </span><?php echo $row['itemno']; ?></p>
+                            </div>
+                            <div class="output-two output">
+                                <p class="p-one"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Time: </span><?php echo $row['time']; ?></p>
+                                <p class="p-two"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Date: </span><?php echo $row['date']; ?></p>
+                            </div>
+                            <div class="output-three output">
+                                <p class="p-one"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Item Category: </span><?php echo $row['itemcategory']; ?></p>
+                                <p class="p-two"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Item Location: </span><?php echo $row['itemlocation']; ?></p>
+                            </div>
+                            <div class="output-four output">
+                                <p class="p-one"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Department: </span><?php echo $row['department']; ?></p>
+                                <p class="p-two"><span style='color:#990000; font-weight:700; margin-right: 20px;'>Campus: </span><?php echo $row['campus']; ?></p>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </section>
+        </main>
+        <!--back to top botton-->
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="./images/backtop-icon.png" alt="" width="60" height="50"></button>
+        <!--These codes are for message form-->
+        <button class="open-button" onclick="openForm()" title="Send Proof"><img src="./images/infocontact-icon.png" alt="" width="60" height="50"></button>
+        <div class="form-popup" id="myForm">
+            <form action="viewer-found.php" class="form-container" method="POST" enctype="multipart/form-data">
+                <div class="message-header">
+                    <h3>Owner's Information(Proof of ownership)</h3>
+                    <button type="button" class="btn-cancel" onclick="closeForm()">X</button>
+                </div>
+                <div class="msg-input">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="Enter Name" name="ownername" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                    </div>
+                </div>
+                <div class="msg-input">
+                    <div>
+                        <label for="itemnumber">Item No.</label>
+                        <input type="text" placeholder="Enter Item No." name="itemnumber" required>
+                    </div>
+                    <div>
+                        <label for="position">Position</label>
+                        <select name="position">
+                            <option value="" selected>Select position...</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Student">Student</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="msg-input">
+                    <div>
+                        <label for="program">Program(If student)</label>
+                        <input type="text" placeholder="Enter Program" name="program" required>
+                    </div>
+                    <div>
+                        <label for="section">Section(If student)</label>
+                        <input type="text" placeholder="Enter Section" name="section" required>
+                    </div>         
+                </div>
+                <div class="msg-input">
+                    <div>
+                        <label for="univcampus">Campus</label>
+                        <select name="univcampus">
+                            <option value="" selected>Select campus...</option>
+                            <option value="Alangilan">Alangilan</option>
+                            <option value="Arasof-Nasugbu">Arasof-Nasugbu</option>
+                            <option value="Balayan">Balayan</option>
+                            <option value="Lemery">Lemery</option>
+                            <option value="Lipa">Lipa</option>
+                            <option value="Lobo">Lobo</option>
+                            <option value="Mabini">Mabini</option>
+                            <option value="Malvar">Malvar</option>
+                            <option value="Pablo Borbon">Pablo Borbon</option>
+                            <option value="Rosario">Rosario</option>
+                            <option value="San Juan">San Juan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="msg-img">
+                    <label for="myfile">Select Image</label>
+                    <input type="file" id="myfile" name="myfile" accept="image/*" style="color: #ffffff;">
+                </div>
+                <div class="msg-submit">
+                    <textarea name="description" style="font: .8rem 'Poppins', Helvetica, sans-serif;" id="description" cols="53" rows="3" placeholder="Write description..." maxlength="250"></textarea>
+                    <button type="submit" class="btn" title="Send"><img src="./images/send-icon.png" alt="" width="30" height="30"></button>
+                </div>
+            </form>
+            <?php
+                ini_set('display_errors',1);
+                //error_reporting(E_ALL & ~E_NOTICE);
+                Error_reporting(0);
+                //Make a MySQL Connection
+                $Name=$_POST['ownername'];
+                $Email=$_POST['email'];
+                $ItemNumber=$_POST['itemnumber'];
+                $Position=$_POST['position'];
+                $Program=$_POST['program'];
+                $Section=$_POST['section'];
+                $UnivCampus=$_POST['univcampus'];
+                $Myfile=$_FILES['myfile']['name'];
+                $Description=$_POST['description'];
+
+                $var1 = rand(1111,9999);  // generate random number in $var1 variable
+                $var2 = rand(1111,9999);  // generate random number in $var2 variable
+
+                $var3 = $var1.$var2;  // concatenate $var1 and $var2 in $var3
+                $var3 = md5($var3);   // convert $var3 using md5 function and generate 32 characters hex number
+
+                $dst = "./all_images/".$var3.$Myfile;  // storing image path into the {all_images} folder with 32 characters hex number and file name
+                $dst_db = "all_images/".$var3.$Myfile; // storing image path into the database with 32 characters hex number and file name
+                
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],$dst);  // move image into the {all_images} folder with 32 characters hex number and image name
+
+                mysql_query("INSERT INTO tb_messages(ownername, email, itemnumber, position, program, section, univcampus, myfile, description) VALUES('$Name','$Email','$ItemNumber','$Position', '$Program','$Section','$UnivCampus','$dst_db', '$Description')");
+            ?>
+        </div>
+        <!--JavaScript Codes-->
+        <script>
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+            // thses codes are for message form
+            function openForm() {
+                document.getElementById("myForm").style.display = "block";
+                }
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+                }
+            //small devices navigation
+            function myNav() {
+                document.getElementById("navigation").style.display = "block";
+                }
+            function closeNav() {
+                document.getElementById("navigation").style.display = "none";
+                }
+        </script>
+    </body>
+</html>
