@@ -308,10 +308,10 @@
         flex-wrap: wrap;
     }
     .msg-input input{
-        width: 170%;
+        width: 180%;
     }
     .msg-input select{
-        width: 240%;
+        width: 260%;
     /*output container style*/
     .output-cont-child{
         width: 100%;
