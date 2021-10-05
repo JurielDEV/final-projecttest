@@ -122,6 +122,7 @@ main{
     border-radius: 10px;
     border: 2px solid var(--color-gray);
     width: 84%;
+    box-shadow:  1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%)
 }
 .input{
     font: .8rem 'Poppins', arial, sans-serif;
@@ -204,6 +205,7 @@ main{
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+    box-shadow:  1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%)
 }
 .output-cont-child p{
     margin: 20px 30px;
